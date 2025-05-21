@@ -56,7 +56,7 @@ This will:
 
 To run the facial expression recognition system:
 ```bash
-python facial_expression_reader.py
+python app.py
 ```
 
 The application will:
