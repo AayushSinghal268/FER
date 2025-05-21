@@ -2,9 +2,6 @@ from flask import Flask, render_template, request, jsonify
 import cv2
 from deepface import DeepFace
 import numpy as np
-import base64
-import io
-from PIL import Image
 import traceback
 
 app = Flask(__name__)
@@ -18,8 +15,6 @@ def preprocess_frame(frame):
     
     # Apply bilateral filter to reduce noise while preserving edges
     filtered = cv2.bilateralFilter(gray, 9, 75, 75)
-    
-    # Apply adaptive histogram equalization
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
     enhanced = clahe.apply(filtered)
     
